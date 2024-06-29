@@ -1,30 +1,28 @@
-import { useState } from 'react';
-import { fresh_connect_backend } from 'declarations/fresh_connect_backend';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Orders from './pages/Orders';
+import Profile from './pages/Profile';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    fresh_connect_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/products" component={Products} />
+            <Route path="/orders" component={Orders} />
+            <Route path="/profile" component={Profile} />
+          </Switch>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
