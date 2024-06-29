@@ -16,7 +16,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
       try {
         const result = await api.getUser(userId);
         if (result) {
-          setUser(result);
+          setUser(result[0]);
         } else {
           setError('User not found');
         }
