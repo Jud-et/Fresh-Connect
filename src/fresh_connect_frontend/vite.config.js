@@ -9,6 +9,9 @@ dotenv.config({ path: '../../.env' });
 export default defineConfig({
   build: {
     emptyOutDir: true,
+    rollupOptions: {
+      external: ['@dfinity/agent'],
+    },
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -31,13 +34,9 @@ export default defineConfig({
     environment("all", { prefix: "DFX_" }),
   ],
   resolve: {
-    alias: [
-      {
-        find: "declarations",
-        replacement: fileURLToPath(
-          new URL("../../declarations", import.meta.url)
-        ),
-      },
-    ],
+    alias: {
+      'declarations': fileURLToPath(new URL('../declarations', import.meta.url)),
+      '@dfinity/agent': fileURLToPath(new URL('../../node_modules/@dfinity/agent', import.meta.url)),
+    }
   },
 });
