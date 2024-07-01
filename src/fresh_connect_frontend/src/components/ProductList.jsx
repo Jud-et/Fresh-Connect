@@ -1,28 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { backendActor } from '../agent';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [productType, setProductType] = useState('');
-  const [maxPrice, setMaxPrice] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const products = await backendActor.searchProducts(productType ? [productType] : null, maxPrice ? [maxPrice] : null);
-      setProducts(products);
+      const result = await backendActor.searchProducts(null, null);
+      setProducts(result);
     };
-
     fetchProducts();
-  }, [productType, maxPrice]);
+  }, []);
 
   return (
-    <div>
-      <input value={productType} onChange={e => setProductType(e.target.value)} placeholder="Product Type" />
-      <input value={maxPrice} onChange={e => setMaxPrice(Number(e.target.value))} placeholder="Max Price" type="number" />
+    <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
+      <h2 className="text-xl font-bold mb-4">Product List</h2>
       <ul>
-        {products.map(product => (
-          <li key={product.farmerId}>
-            {product.name} - {product.productType} - {product.quantity} - {product.price}
+        {products.map((product, index) => (
+          <li key={index} className="mb-4">
+            <h3 className="text-lg font-bold">{product.name}</h3>
+            <p>Type: {product.productType}</p>
+            <p>Quantity: {product.quantity}</p>
+            <p>Price: {product.price}</p>
           </li>
         ))}
       </ul>

@@ -15,14 +15,29 @@ const RegisterUser = () => {
   };
 
   return (
-    <div>
-      <input value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
-      <select value={role} onChange={e => setRole(e.target.value)}>
+    <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6">
+      <h2 className="text-xl font-bold mb-4">Register</h2>
+      <input
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+        placeholder="Username"
+        className="w-full mb-4 p-2 border border-gray-300 rounded"
+      />
+      <select
+        value={role}
+        onChange={e => setRole(e.target.value)}
+        className="w-full mb-4 p-2 border border-gray-300 rounded"
+      >
         <option value="#farmer">Farmer</option>
         <option value="#consumer">Consumer</option>
         <option value="#mamamboga">Mamamboga</option>
       </select>
-      <button onClick={register}>Register</button>
+      <button
+        onClick={register}
+        className="w-full bg-blue-500 text-white p-2 rounded"
+      >
+        Register
+      </button>
     </div>
   );
 };
