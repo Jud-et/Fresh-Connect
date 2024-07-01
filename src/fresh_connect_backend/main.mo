@@ -136,7 +136,7 @@ actor FreshFarmConnect {
                 
                 // Update product quantity
                 let updatedProduct = {
-                    product with quantity = product.quantity - quantity;
+                    product with quantity = (product.quantity - quantity);
                 };
                 products.put(productId, updatedProduct);
                 
