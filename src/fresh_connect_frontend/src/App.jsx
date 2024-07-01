@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fresh_connect_backend } from "../../../declarations/fresh_connect_backend";
+import { fresh_connect_backend } from "../../declarations/fresh_connect_backend";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -7,9 +7,7 @@ function App() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // Fetch current user on component mount
     fetchCurrentUser();
-    // Fetch products
     fetchProducts();
   }, []);
 
@@ -25,7 +23,7 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const allProducts = await fresh_connect_backend.searchProducts(null, null);
+      const allProducts = await fresh_connect_backend.searchProducts([], []);
       setProducts(allProducts);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -34,7 +32,7 @@ function App() {
 
   const registerUser = async (username, role) => {
     try {
-      const result = await FreshFarmConnect.registerUser(username, role);
+      const result = await fresh_connect_backend.registerUser(username, role);
       if (result) {
         fetchCurrentUser();
       }
@@ -45,7 +43,7 @@ function App() {
 
   const addProduct = async (name, productType, quantity, price) => {
     try {
-      await FreshFarmConnect.addProduct(name, productType, Number(quantity), Number(price));
+      await fresh_connect_backend.addProduct(name, productType, BigInt(quantity), BigInt(price));
       fetchProducts();
     } catch (error) {
       console.error("Error adding product:", error);
@@ -54,7 +52,7 @@ function App() {
 
   const placeOrder = async (productId, quantity) => {
     try {
-      const orderId = await FreshFarmConnect.placeOrder(productId, Number(quantity));
+      const orderId = await fresh_connect_backend.placeOrder(BigInt(productId), BigInt(quantity));
       if (orderId) {
         console.log("Order placed successfully:", orderId);
       }
@@ -82,7 +80,7 @@ function App() {
       <ul>
         {products.map((product, index) => (
           <li key={index}>
-            {product.name} - {product.price} tokens
+            {product.name} - {product.price.toString()} tokens
             <button onClick={() => placeOrder(index, 1)}>Buy</button>
           </li>
         ))}
