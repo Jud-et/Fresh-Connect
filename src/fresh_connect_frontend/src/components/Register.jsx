@@ -10,9 +10,10 @@ function Register({ setUser }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await fresh_connect_backend.registerUser(username, { [role]: null });
+      const identity = await authClient.getIdentity();
+      const principal = identity.getPrincipal();
+      const result = await fresh_connect_backend.registerUser(principal, username, { [role]: null });
       if (result) {
-        const principal = await window.ic.plug.getPrincipal();
         const userDetails = await fresh_connect_backend.getUser(principal);
         setUser(userDetails[0]);
         navigate('/');
