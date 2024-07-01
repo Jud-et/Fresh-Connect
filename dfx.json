@@ -12,6 +12,9 @@
         "src/fresh_connect_frontend/dist"
       ],
       "type": "assets",
+      "frontend": {
+        "entrypoint": "src/index.html"
+      },
       "workspace": "fresh_connect_frontend"
     },
     "internet_identity": {

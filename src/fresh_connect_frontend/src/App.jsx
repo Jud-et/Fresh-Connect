@@ -1,30 +1,18 @@
-import { useState } from 'react';
-import { fresh_connect_backend } from 'declarations/fresh_connect_backend';
+import React, { useEffect } from 'react';
+import { initAuthClient } from './auth';
+import { createActor } from './agent';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    fresh_connect_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
+  useEffect(() => {
+    initAuthClient();
+  }, []);
 
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <div className="App">
+      <header className="App-header">
+        <h1>Fresh Connect</h1>
+      </header>
+    </div>
   );
 }
 
