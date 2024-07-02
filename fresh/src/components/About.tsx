@@ -32,17 +32,17 @@ const About: React.FC = () => {
             name="Judith Waithera"
             role="Founder & CEO"
             imageSrc={Judith}
-            linkedin="https://www.linkedin.com/in/johndoe"
+            linkedin="https://www.linkedin.com/in/judith-waithera-306915270/"
             github="https://github.com/Jud-et"
-            twitter="https://twitter.com/johndoe"
+            twitter="https://x.com/JudithKaru97166"
           />
           <TeamMember 
             name="Henry kimani"
             role="CTO"
             imageSrc={Henry}
-            linkedin="https://www.linkedin.com/in/janesmith"
+            linkedin="https://www.linkedin.com/in/kimani-henry-19a1b6305"
             github="https://github.com/H3nryK"
-            twitter="https://twitter.com/janesmith"
+            twitter="https://x.com/H3nryKim"
           />
         </div>
       </div>
