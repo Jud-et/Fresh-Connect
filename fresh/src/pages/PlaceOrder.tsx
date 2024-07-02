@@ -11,9 +11,9 @@ interface OrderItem {
 
 const PlaceOrder: React.FC = () => {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([
-    { id: 1, name: 'Product 1', price: 19.99, quantity: 1 },
-    { id: 2, name: 'Product 2', price: 29.99, quantity: 1 },
-    { id: 3, name: 'Product 3', price: 39.99, quantity: 1 },
+    { id: 1, name: 'Cabbages',  quantity: 1 , price: 60.00 },
+    { id: 2, name: 'Dragon Fruits',  quantity: 1 , price: 120.00 },
+    { id: 3, name: 'Mangoes',  quantity: 1 , price: 40.00 },
   ]);
 
   const [total, setTotal] = useState(0);

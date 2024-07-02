@@ -12,6 +12,7 @@ const About: React.FC = () => {
           <p className="text-lg mb-8">
             Fresh Farm Connect is an innovative platform built on the Internet Computer Protocol (ICP) that aims to revolutionize the agricultural supply chain in Kenya. Our mission is to connect farmers directly with consumers and mama mbogas, eliminating intermediaries and ensuring fresher produce at fairer prices.
           </p>
+          <h3 className="text-2xl font-bold mb-4">Inspiration</h3>
           <p className="text-lg mb-8">
             Inspired by the challenges faced by farmers whose produce often rots due to lack of market access, and the desire of consumers for fresh, locally-sourced food, we've created a system that benefits all parties involved in the farm-to-table process.
           </p>
@@ -32,7 +33,7 @@ const About: React.FC = () => {
             role="Founder & CEO"
             imageSrc={Judith}
             linkedin="https://www.linkedin.com/in/johndoe"
-            github="https://github.com/johndoe"
+            github="https://github.com/Jud-et"
             twitter="https://twitter.com/johndoe"
           />
           <TeamMember 
@@ -40,7 +41,7 @@ const About: React.FC = () => {
             role="CTO"
             imageSrc={Henry}
             linkedin="https://www.linkedin.com/in/janesmith"
-            github="https://github.com/janesmith"
+            github="https://github.com/H3nryK"
             twitter="https://twitter.com/janesmith"
           />
         </div>
