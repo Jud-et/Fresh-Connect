@@ -8,9 +8,9 @@ import Footer from '../components/Footer';
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="landing-page">
+    <div className="landing-page min-h-screen flex flex-col">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Intro />
         <Features />
         <About />
