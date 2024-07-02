@@ -9,6 +9,8 @@ const RegisterUser = () => {
     const result = await backendActor.registerUser(username, { [role]: null });
     if (result) {
       alert('User registered successfully!');
+      setUsername('');
+      setRole('#consumer');
     } else {
       alert('User registration failed.');
     }

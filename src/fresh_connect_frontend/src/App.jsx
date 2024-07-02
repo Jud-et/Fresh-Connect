@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { initAuthClient } from './auth';
 import LandingPage from './components/LandingPage';
 import RegisterPage from './pages/RegisterPage';
@@ -28,14 +28,14 @@ function App() {
         </nav>
       </header>
       <main className="container mx-auto p-4">
-        <Switch>
-          <Route path="/" exact component={LandingPage} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/add-product" component={AddProductPage} />
-          <Route path="/products" component={ProductListPage} />
-          <Route path="/place-order" component={PlaceOrderPage} />
-          <Route path="/reviews" component={ReviewsPage} />
-        </Switch>
+        <Routes>
+          <Route path="/" exact element={<LandingPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/add-product" element={<AddProductPage />} />
+          <Route path="/products" element={<ProductListPage />} />
+          <Route path="/place-order" element={<PlaceOrderPage />} />
+          <Route path="/reviews" element={<ReviewsPage />} />
+        </Routes>
       </main>
     </div>
   );

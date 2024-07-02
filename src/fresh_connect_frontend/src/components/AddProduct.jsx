@@ -9,7 +9,15 @@ const AddProduct = () => {
 
   const addProduct = async () => {
     const productId = await backendActor.addProduct(name, productType, quantity, price);
-    alert(`Product added with ID: ${productId}`);
+    if (productId !== null) {
+      alert(`Product added with ID: ${productId}`);
+      setName('');
+      setProductType('');
+      setQuantity(0);
+      setPrice(0);
+    } else {
+      alert('Failed to add product.');
+    }
   };
 
   return (
