@@ -54,7 +54,7 @@ const PlaceOrder: React.FC = () => {
   };
 
   return (
-    <div className='login-page min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col'>
       <Header />
       <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -67,7 +67,7 @@ const PlaceOrder: React.FC = () => {
                   <div key={item.id} className="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow">
                     <div>
                       <h3 className="text-xl font-semibold">{item.name}</h3>
-                      <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                      <p className="text-gray-600">Ksh.{item.price.toFixed(2)}</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <button 
@@ -96,7 +96,7 @@ const PlaceOrder: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <div className="text-xl font-bold">Total: ${total.toFixed(2)}</div>
+              <div className="text-xl font-bold">Total: Ksh.{total.toFixed(2)}</div>
               <input
                 type="text"
                 placeholder="Your Name"

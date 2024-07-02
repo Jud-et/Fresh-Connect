@@ -35,7 +35,7 @@ const DirectMessaging: React.FC = () => {
   };
 
   return (
-    <div className='login-page min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col'>
       <Header />
       <div className="flex flex-col h-screen bg-gray-100">
         <div className="flex-1 overflow-y-auto p-4 space-y-4">

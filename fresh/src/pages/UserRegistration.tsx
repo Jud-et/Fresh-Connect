@@ -14,12 +14,12 @@ const UserRegistration: React.FC = () => {
   };
 
   return (
-    <div className='login-page min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col'>
       <Header />
       <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
-            <img className="mx-auto h-12 w-auto" src={Logo} alt="Fresh Farm Connect Logo" />
+            <img className="mx-auto h-65 w-auto" src={Logo} alt="Fresh Farm Connect Logo" />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Register a new account
             </h2>

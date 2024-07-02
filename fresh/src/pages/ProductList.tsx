@@ -18,7 +18,7 @@ const ProductList: React.FC = () => {
   ];
 
   return (
-    <div className='login-page min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col'>
       <Header />
       <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -30,7 +30,7 @@ const ProductList: React.FC = () => {
                 <div key={product.id} className="bg-gray-50 p-4 rounded-lg shadow">
                   <h3 className="text-xl font-semibold">{product.name}</h3>
                   <p className="text-gray-600">{product.description}</p>
-                  <p className="text-indigo-600 font-bold mt-2">${product.price.toFixed(2)}</p>
+                  <p className="text-indigo-600 font-bold mt-2">Ksh.{product.price.toFixed(2)}</p>
                 </div>
               ))}
             </div>

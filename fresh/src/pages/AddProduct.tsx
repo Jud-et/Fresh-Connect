@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -6,17 +6,29 @@ const AddProduct: React.FC = () => {
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [productPrice, setProductPrice] = useState('');
+  const [productImage, setProductImage] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      setProductImage(file);
+      setPreviewUrl(URL.createObjectURL(file));
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle add product logic here
-    console.log('Adding product:', { productName, productDescription, productPrice });
+    console.log('Adding product:', { productName, productDescription, productPrice, productImage });
+    // You would typically send this data to your backend here
   };
 
   return (
-    <div className='login-page min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col'>
       <Header />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex-grow flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Add a New Product
@@ -62,6 +74,27 @@ const AddProduct: React.FC = () => {
                   onChange={(e) => setProductPrice(e.target.value)}
                 />
               </div>
+            </div>
+            <div>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                ref={fileInputRef}
+                className="hidden"
+              />
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Upload Product Image
+              </button>
+              {previewUrl && (
+                <div className="mt-4">
+                  <img src={previewUrl} alt="Product preview" className="w-full h-48 object-cover rounded-md" />
+                </div>
+              )}
             </div>
             <div>
               <button
